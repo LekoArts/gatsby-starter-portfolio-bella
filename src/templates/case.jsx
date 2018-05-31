@@ -70,6 +70,14 @@ const Content = styled.main`
     margin-top: 6rem;
     margin-bottom: 6rem;
   }
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+    .block-img {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+  }
 `;
 
 const CaseTemplate = ({ data: { prismicCaseStudy: caseNode } }) => {

@@ -13,6 +13,9 @@ const Header = styled.header`
   height: 900px;
   position: relative;
   padding: 1.75rem;
+  @media (max-width: ${props => props.theme.breakpoint.s}) {
+    height: 700px;
+  }
 `;
 
 const Logo = styled.h2`
@@ -48,7 +51,7 @@ const Hero = styled(Flex)`
   }
   @media (max-width: ${props => props.theme.breakpoint.s}) {
     h1 {
-      line-height: 3rem;
+      line-height: 2.5rem;
     }
     h3 {
       font-size: 1.3rem;
