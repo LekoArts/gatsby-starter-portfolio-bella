@@ -13,6 +13,12 @@ const Item = styled(Flex)`
   width: calc(99.9% * 1 / 2 - 4rem);
   text-align: center;
   position: relative;
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
+    flex-basis: 100%;
+    max-width: 100%;
+    width: 100%;
+    margin-top: 3rem !important;
+  }
 `;
 
 const ItemTitle = styled.h3`
@@ -41,7 +47,7 @@ const Overlay = styled(Flex)`
   span {
     z-index: 20;
     color: ${props => props.theme.colors.bg};
-    font-size: 2rem;
+    font-size: 1.5rem;
     opacity: 0;
     transition: opacity 300ms ease-out;
     &:first-child {
@@ -49,7 +55,7 @@ const Overlay = styled(Flex)`
       transform: translateY(2rem);
     }
     &:last-child {
-      font-size: 4rem;
+      font-size: 3.5rem;
       line-height: 3rem;
       transition: transform 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
       transform: translateY(4rem);

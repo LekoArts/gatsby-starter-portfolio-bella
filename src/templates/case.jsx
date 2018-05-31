@@ -61,6 +61,9 @@ const Content = styled.main`
     margin-left: auto;
     margin-right: auto;
   }
+  li {
+    margin-left: 1.45rem;
+  }
   .block-img {
     max-width: 100%;
     margin-top: 6rem;

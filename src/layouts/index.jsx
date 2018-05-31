@@ -22,6 +22,26 @@ injectGlobal`
       color: ${theme.colors.primary};
     }
   }
+  @media (max-width: ${theme.breakpoint.m}), (max-device-width: ${theme.breakpoint.m}) {
+    html {
+      font-size: 16px;
+      h1 {
+        font-size: 3.157rem
+      }
+      h2 {
+        font-size: 2.369rem;
+      }
+      h3 {
+        font-size: 1.777rem;
+      }
+      h4 {
+        font-size: 1.333rem;
+      }
+      h5 {
+        font-size: 1rem;
+      }
+    }
+  }
   body {
     color: ${theme.colors.text};
     background-color: ${theme.colors.bg};

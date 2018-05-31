@@ -15,6 +15,14 @@ const Wrapper = styled.footer`
   }
 `;
 
+const Inner = styled(Flex)`
+  @media (max-width: ${props => props.theme.breakpoint.l}) {
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+`;
+
 const StyledLink = styled(Link)`
   &:before {
     content: '←';
@@ -26,7 +34,7 @@ const Footer = ({ isCase }) => {
   const year = new Date().getFullYear();
   return (
     <Wrapper>
-      <Flex justifyContent="space-between" p={4}>
+      <Inner justifyContent="space-between" p={4}>
         {isCase ? (
           <React.Fragment>
             <StyledLink>Return to home</StyledLink>
@@ -35,14 +43,15 @@ const Footer = ({ isCase }) => {
         ) : (
           <React.Fragment>
             <div>
-              Copyright &copy; {year} by <a href="https://github.com/LeKoArts/gatsby-starter-portfolio-bella">Bella GitHub Repository</a>.
-              Pictures by <a href="https://unsplash.com/">Unsplash</a>. Illustrations by{' '}
+              Copyright &copy; {year} by{' '}
+              <a href="https://github.com/LeKoArts/gatsby-starter-portfolio-bella">Bella GitHub Repository</a>. Pictures
+              by <a href="https://unsplash.com/">Unsplash</a>. Illustrations by{' '}
               <a href="https://undraw.co/illustrations">Undraw</a>.
             </div>
             <div>Snapchat &mdash; Musicaly &mdash; Twitter</div>
           </React.Fragment>
         )}
-      </Flex>
+      </Inner>
     </Wrapper>
   );
 };

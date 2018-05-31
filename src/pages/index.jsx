@@ -1,7 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import PropTypes from 'prop-types';
-import Image from 'gatsby-image';
 import styled from 'react-emotion';
 import { Flex } from 'grid-emotion';
 import Footer from '../components/Footer';
@@ -9,7 +7,6 @@ import GridItem from '../components/GridItem';
 import BeTheHero from '../images/be_the_hero.svg';
 import DataReport from '../images/data_report.svg';
 import MayTheForce from '../images/may_the_force.svg';
-import { randomNumber } from '../utils/randomNumber';
 
 const Header = styled.header`
   width: 100%;
@@ -39,13 +36,21 @@ const Hero = styled(Flex)`
     font-size: 1.85rem;
     font-weight: 400;
   }
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
+    h1 {
+      line-height: 3.5rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
 `;
 
 const Wrapper = styled(Flex)`
   max-width: ${props => props.theme.maxWidth};
 `;
 
-const Services = styled.section`
+const PrimaryBG = styled.section`
   background: ${props => props.theme.colors.primaryDark};
   color: ${props => props.theme.colors.textInvert};
   h1,
@@ -60,12 +65,57 @@ const ServiceImage = styled.div`
   flex-basis: calc(99.9% * 4 / 7 - 5rem);
   max-width: calc(99.9% * 4 / 7 - 5rem);
   width: calc(99.9% * 4 / 7 - 5rem);
+  text-align: center;
+  img {
+    width: 90%;
+    margin-bottom: 2rem;
+  }
+  @media (max-width: ${props => props.theme.breakpoint.l}) {
+    flex-basis: 100%;
+    max-width: 100%;
+    width: 100%;
+    img {
+      width: 50%;
+    }
+  }
 `;
 
 const ServiceText = styled.div`
   flex-basis: calc(99.9% * 3 / 7 - 5rem);
   max-width: calc(99.9% * 3 / 7 - 5rem);
   width: calc(99.9% * 3 / 7 - 5rem);
+  @media (max-width: ${props => props.theme.breakpoint.l}) {
+    flex-basis: 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+  ol,
+  ul {
+    list-style: none;
+    margin-left: 0;
+  }
+  li:before {
+    content: '－';
+    padding-right: 8px;
+  }
+`;
+
+const Contact = styled(Wrapper)`
+  margin: 0 auto;
+  h1,
+  h2,
+  h3 {
+    color: ${props => props.theme.colors.text};
+  }
+  h3 {
+    font-family: ${props => props.theme.fontFamily.body};
+    margin-top: 1rem;
+    font-size: 1.85rem;
+    font-weight: 400;
+  }
+  @media (max-width: ${props => props.theme.breakpoint.m}) {
+    font-size: 1.5rem;
+  }
 `;
 
 const IndexPage = ({
@@ -83,7 +133,7 @@ const IndexPage = ({
         <h3>Hi, Bella Inc., the human form of the 💯 Emoji.</h3>
       </Hero>
     </Header>
-    <Wrapper p={4} mb={7} mx="auto" justifyContent="space-between" flexWrap="wrap">
+    <Wrapper p={4} mb={[4, 4, 7]} mx="auto" justifyContent="space-between" flexWrap="wrap">
       {edges.map(c => (
         <GridItem
           uid={c.node.uid}
@@ -95,37 +145,68 @@ const IndexPage = ({
         />
       ))}
     </Wrapper>
-    <Services>
+    <PrimaryBG>
       <Wrapper flexDirection="column" p={4} mx="auto">
-        <Flex w={1} py={6} justifyContent="space-between">
+        <Flex w={1} py={5} justifyContent="space-between" flexWrap="wrap">
           <ServiceImage>
             <img src={BeTheHero} alt="Be The Hero" />
           </ServiceImage>
           <ServiceText>
-            <h2>Digital Design Service</h2>
-            <p>alskdö ölaksjdf ölaksdjöl alöjkdfalös löaksjdflöa öalksdj</p>
+            <h2>Be your own hero</h2>
+            <p>
+              Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
+              blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language
+              ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is
+              a paradisematic country, in which roasted parts of sentences fly into your mouth.
+            </p>
+            <ul>
+              <li>Service Super</li>
+              <li>Great Offer</li>
+              <li>Item Wrap</li>
+            </ul>
           </ServiceText>
         </Flex>
-        <Flex w={1} py={6} justifyContent="space-between" flexDirection="row-reverse">
+        <Flex w={1} py={5} justifyContent="space-between" flexDirection="row-reverse" flexWrap="wrap">
           <ServiceImage>
             <img src={DataReport} alt="Data Report" />
           </ServiceImage>
           <ServiceText>
-            <h2>Digital Design Service</h2>
-            <p>alskdö ölaksjdf ölaksdjöl alöjkdfalös löaksjdflöa öalksdj</p>
+            <h2>We love charts!</h2>
+            <p>
+              Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
+              blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language
+              ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.
+            </p>
+            <ul>
+              <li>Service Super</li>
+              <li>Great Offer</li>
+              <li>Item Wrap</li>
+            </ul>
           </ServiceText>
         </Flex>
-        <Flex w={1} py={6} justifyContent="space-between">
+        <Flex w={1} py={5} justifyContent="space-between" flexWrap="wrap">
           <ServiceImage>
             <img src={MayTheForce} alt="May the Force" />
           </ServiceImage>
           <ServiceText>
-            <h2>Digital Design Service</h2>
-            <p>alskdö ölaksjdf ölaksdjöl alöjkdfalös löaksjdflöa öalksdj</p>
+            <h2>May the force be with you</h2>
+            <p>
+              Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
+              blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language
+              ocean.
+            </p>
+            <ul>
+              <li>Service Super</li>
+              <li>Great Offer</li>
+            </ul>
           </ServiceText>
         </Flex>
       </Wrapper>
-    </Services>
+    </PrimaryBG>
+    <Contact px={4} py={6} justifyContent="center" alignItems="center" flexDirection="column">
+      <h1>Say hi!</h1>
+      <h3>contact@domain.com</h3>
+    </Contact>
     <Footer />
   </React.Fragment>
 );
