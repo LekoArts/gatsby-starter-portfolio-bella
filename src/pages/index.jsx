@@ -5,6 +5,7 @@ import Image from 'gatsby-image';
 import styled from 'react-emotion';
 import { Flex } from 'grid-emotion';
 import Footer from '../components/Footer';
+import GridItem from '../components/GridItem';
 import BeTheHero from '../images/be_the_hero.svg';
 import DataReport from '../images/data_report.svg';
 import MayTheForce from '../images/may_the_force.svg';
@@ -42,25 +43,6 @@ const Hero = styled(Flex)`
 
 const Wrapper = styled(Flex)`
   max-width: ${props => props.theme.maxWidth};
-`;
-
-const GridItem = styled(Flex)`
-  flex-basis: calc(99.9% * 1 / 2 - 4rem);
-  max-width: calc(99.9% * 1 / 2 - 4rem);
-  width: calc(99.9% * 1 / 2 - 4rem);
-  text-align: center;
-  position: relative;
-`;
-
-const ItemTitle = styled.h3`
-  color: ${props => props.theme.colors.text};
-  font-size: 2rem;
-  margin-top: 1.25rem;
-  margin-bottom: 1rem;
-`;
-
-const ItemSubtitle = styled.p`
-  color: ${props => props.theme.colors.greyMedium};
 `;
 
 const Services = styled.section`
@@ -103,13 +85,14 @@ const IndexPage = ({
     </Header>
     <Wrapper p={4} mb={7} mx="auto" justifyContent="space-between" flexWrap="wrap">
       {edges.map(c => (
-        <GridItem flexDirection="column" key={c.node.uid} style={{ marginTop: `${randomNumber(4, 8) * 2}rem` }}>
-          <Link to={c.node.uid}>
-            <Image sizes={c.node.data.header_image.localFile.childImageSharp.sizes} alt={c.node.data.title.text} />
-          </Link>
-          <ItemTitle>{c.node.data.title.text}</ItemTitle>
-          <ItemSubtitle>{c.node.data.subtitle.text}</ItemSubtitle>
-        </GridItem>
+        <GridItem
+          uid={c.node.uid}
+          key={c.node.uid}
+          sizes={c.node.data.header_image.localFile.childImageSharp.sizes}
+          alt={c.node.data.title.text}
+          title={c.node.data.title.text}
+          subtitle={c.node.data.subtitle.text}
+        />
       ))}
     </Wrapper>
     <Services>
