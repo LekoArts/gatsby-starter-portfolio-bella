@@ -85,6 +85,7 @@ const CaseTemplate = ({ data: { prismicCaseStudy: caseNode } }) => {
   return (
     <React.Fragment>
       <Helmet title={`${data.title.text} | ${config.siteTitle}`} />
+      <SEO caseNode={caseNode} casePath={caseNode.uid} caseSEO />
       <Hero>
         <Image sizes={data.header_image.localFile.childImageSharp.sizes} />
         <TitleWrapper py={4}>
@@ -119,6 +120,9 @@ export const pageQuery = graphql`
             childImageSharp {
               sizes(maxWidth: 1920, quality: 90, traceSVG: { color: "#021212" }) {
                 ...GatsbyImageSharpSizes_withWebp_tracedSVG
+              }
+              resize(width: 800) {
+                src
               }
             }
           }

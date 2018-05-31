@@ -1,4 +1,6 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import config from '../../config/website';
 
@@ -8,18 +10,18 @@ const SEO = props => {
   let description;
   let image;
   let postURL;
-  const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
   if (caseSEO) {
-    const postMeta = caseNode.frontmatter;
-    title = postMeta.title; // eslint-disable-line prefer-destructuring
-    description = caseNode.excerpt;
-    image = postMeta.cover.childImageSharp.resize.src;
-    postURL = config.siteUrl + realPrefix + casePath;
+    const caseMeta = caseNode.data;
+    title = caseMeta.title.text;
+    description = caseMeta.subtitle.text;
+    image = caseMeta.header_image.localFile.childImageSharp.resize.src;
+    postURL = config.siteUrl + config.pathPrefix + casePath;
   } else {
     title = config.siteTitle;
     description = config.siteDescription;
     image = config.siteLogo;
   }
+  const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
   image = config.siteUrl + realPrefix + image;
   const blogURL = config.siteUrl + config.pathPrefix;
   const schemaOrgJSONLD = [
@@ -88,7 +90,6 @@ const SEO = props => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content={config.userTwitter ? config.userTwitter : ''} />
       <meta name="twitter:title" content={title} />
-      <meta name="twitter:url" content={config.siteUrl} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
     </Helmet>
@@ -96,3 +97,9 @@ const SEO = props => {
 };
 
 export default SEO;
+
+SEO.propTypes = {
+  caseNode: PropTypes.object,
+  casePath: PropTypes.string,
+  caseSEO: PropTypes.bool,
+};

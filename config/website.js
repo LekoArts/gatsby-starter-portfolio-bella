@@ -9,7 +9,7 @@ module.exports = {
   siteDescription: 'A bright single-page portfolio starter with big typography & images for Gatsby.',
 
   siteFBAppID: '123456789', // Facebook App ID
-  userTwitter: 'bella', // Twitter Username
+  userTwitter: '@bella', // Twitter Username
   ogSiteName: 'bella', // Facebook Site Name
 
   // Manifest and Progress color
