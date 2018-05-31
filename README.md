@@ -61,7 +61,9 @@ This starter uses [Prismic.io](https://prismic.io/) as its CMS and therefore you
 - Modify this starter in order to use your favourite data source
 
 If you choose Prismic, you need to create the exact same "Custom Type" if you not want to modify the queries and names in the components.
+
 Go to your custom types:
+
 `https://your-name.prismic.io/masks/` and click **New**. Choose the name `Case Study` which results in the API ID `case_study`.
 On the right side you have your **Build mode** and **JSON editor**. Open the **JSON editor** and copy/paste the following content:
 
@@ -117,11 +119,14 @@ On the right side you have your **Build mode** and **JSON editor**. Open the **J
 This is the exact same content type I used for the starter.
 
 You need to define the API Key for your Prismic repository in `gatsby-config.js`. You can retrieve the key here:
+
 - You can generate an access token in the "API & Security" section of your repository settings. Setting a "Callback URL" is not necessary.
 - The token will be listed under "Permanent access tokens".
 
 It's best to store the API Key in an environment variable. Create the file `.env.development` in the root dir of your project. Its content should be:
+
 `API_KEY=OIJSOJIO-YOURKEYHERE-EAJNALÖKND`
+
 If you deploy to Netlify you can also setup an environment variable.
 
 More information on the source plugin: [gatsby-source-prismic](https://github.com/angeloashmore/gatsby-source-prismic)
