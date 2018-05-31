@@ -54,7 +54,77 @@ gatsby new project-name https://github.com/LeKoArts/gatsby-starter-portfolio-bel
 npm run dev
 ```
 
-### TODO: Prismic
+## Prismic?!
+
+This starter uses [Prismic.io](https://prismic.io/) as its CMS and therefore you have two options:
+- Setup an account on Prismic and also use it
+- Modify this starter in order to use your favourite data source
+
+If you choose Prismic, you need to create the exact same "Custom Type" if you not want to modify the queries and names in the components.
+Go to your custom types:
+`https://your-name.prismic.io/masks/` and click **New**. Choose the name `Case Study` which results in the API ID `case_study`.
+On the right side you have your **Build mode** and **JSON editor**. Open the **JSON editor** and copy/paste the following content:
+
+```JSON
+{
+  "Content" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "SEO",
+        "placeholder" : "SEO"
+      }
+    },
+    "header_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : 1920,
+          "height" : 1080
+        },
+        "thumbnails" : [ ],
+        "label" : "Header Image"
+      }
+    },
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Title",
+        "placeholder" : "Case study title"
+      }
+    },
+    "subtitle" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading2",
+        "label" : "Subtitle",
+        "placeholder" : "Subtitle"
+      }
+    },
+    "content" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, list-item, o-list-item",
+        "label" : "content",
+        "placeholder" : "Case study content"
+      }
+    }
+  }
+}
+```
+
+This is the exact same content type I used for the starter.
+
+You need to define the API Key for your Prismic repository in `gatsby-config.js`. You can retrieve the key here:
+- You can generate an access token in the "API & Security" section of your repository settings. Setting a "Callback URL" is not necessary.
+- The token will be listed under "Permanent access tokens".
+
+It's best to store the API Key in an environment variable. Create the file `.env.development` in the root dir of your project. Its content should be:
+`API_KEY=OIJSOJIO-YOURKEYHERE-EAJNALÖKND`
+If you deploy to Netlify you can also setup an environment variable.
+
+More information on the source plugin: [gatsby-source-prismic](https://github.com/angeloashmore/gatsby-source-prismic)
 
 ### Adding new features/plugins
 
@@ -72,7 +142,24 @@ Copy the content of the ``public`` folder to your webhost or use a website like 
 You can configure your setup in ``config/website``:
 
 ```JS
-TODO
+module.exports = {
+  pathPrefix: '/', // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "portfolio"
+
+  siteTitle: 'Bella - Gatsby Starter Portfolio', // Navigation and Site Title
+  siteTitleAlt: 'Bella', // Alternative Site title for SEO
+  siteUrl: 'https://portfolio-bella.netlify.com', // Domain of your site. No trailing slash!
+  siteLanguage: 'en', // Language Tag on <html> element
+  siteLogo: '/logos/logo-1024.png', // Used for SEO and manifest
+  siteDescription: 'A bright single-page portfolio starter with big typography & images for Gatsby.',
+
+  siteFBAppID: '123456789', // Facebook App ID
+  userTwitter: '@bella', // Twitter Username
+  ogSiteName: 'bella', // Facebook Site Name
+
+  // Manifest and Progress color
+  themeColor: '#b710a1',
+  backgroundColor: '#350d27',
+};
 ```
 
 **Attention:** You also need to edit ``static/robots.txt`` to include your domain!
