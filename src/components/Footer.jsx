@@ -35,7 +35,7 @@ const Footer = ({ isCase }) => {
         ) : (
           <React.Fragment>
             <div>
-              Copyright &copy; {year} by <a href="https://github.com/LeKoArts/gatsby-starter-portfolio-bella">Bella</a>.
+              Copyright &copy; {year} by <a href="https://github.com/LeKoArts/gatsby-starter-portfolio-bella">Bella GitHub Repository</a>.
               Pictures by <a href="https://unsplash.com/">Unsplash</a>. Illustrations by{' '}
               <a href="https://undraw.co/illustrations">Undraw</a>.
             </div>

@@ -18,6 +18,9 @@ injectGlobal`
     box-sizing: border-box;
     -ms-overflow-style: scrollbar;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    h1, h2, h3, h4, h5, h6 {
+      color: ${theme.colors.primary};
+    }
   }
   body {
     color: ${theme.colors.text};
@@ -45,9 +48,6 @@ injectGlobal`
     &:focus {
       outline: 0;
     }
-  }
-  h1, h2, h3, h4, h5, h6 {
-    color: ${theme.colors.primary};
   }
 `;
 
