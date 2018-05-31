@@ -1,7 +1,30 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require('path');
 
- // You can delete this file if you're not using it
+exports.createPages = async ({ graphql, boundActionCreators }) => {
+  const { createPage } = boundActionCreators;
+
+  const pages = await graphql(`
+    {
+      allPrismicCaseStudy {
+        edges {
+          node {
+            id
+            uid
+          }
+        }
+      }
+    }
+  `);
+
+  const caseTemplate = path.resolve('src/templates/case.jsx');
+
+  pages.data.allPrismicCaseStudy.edges.forEach(edge => {
+    createPage({
+      path: `/${edge.node.uid}`,
+      component: caseTemplate,
+      context: {
+        uid: edge.node.uid,
+      },
+    });
+  });
+};

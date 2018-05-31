@@ -40,7 +40,7 @@ const typography = new Typography({
       styles: ['400'],
     },
   ],
-  scaleRatio: 2.441,
+  scaleRatio: 3.998,
   headerWeight: 700,
   overrideStyles: () => ({
     img: {
