@@ -3,18 +3,18 @@ import Helmet from 'react-helmet';
 import config from '../../config/website';
 
 const SEO = props => {
-  const { postNode, postPath, postSEO } = props;
+  const { caseNode, casePath, caseSEO } = props;
   let title;
   let description;
   let image;
   let postURL;
   const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
-  if (postSEO) {
-    const postMeta = postNode.frontmatter;
+  if (caseSEO) {
+    const postMeta = caseNode.frontmatter;
     title = postMeta.title; // eslint-disable-line prefer-destructuring
-    description = postNode.excerpt;
+    description = caseNode.excerpt;
     image = postMeta.cover.childImageSharp.resize.src;
-    postURL = config.siteUrl + realPrefix + postPath;
+    postURL = config.siteUrl + realPrefix + casePath;
   } else {
     title = config.siteTitle;
     description = config.siteDescription;
@@ -31,7 +31,7 @@ const SEO = props => {
       alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
     },
   ];
-  if (postSEO) {
+  if (caseSEO) {
     schemaOrgJSONLD.push([
       {
         '@context': 'http://schema.org',
@@ -65,13 +65,22 @@ const SEO = props => {
   }
   return (
     <Helmet>
+      <html lang={config.siteLanguage} />
+      <title>{title}</title>
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+      <link rel="shortcut icon" href="/favicons/favicon.ico" />
+      <meta name="msapplication-TileColor" content="#b710a1" />
+      <meta name="msapplication-config" content="browserconfig.xml" />
+      <meta name="theme-color" content="#b710a1" />
       <meta name="description" content={description} />
       <meta name="image" content={image} />
       <script type="application/ld+json">{JSON.stringify(schemaOrgJSONLD)}</script>
       <meta property="og:locale" content="de_DE" />
       <meta property="og:site_name" content={config.ogSiteName} />
-      <meta property="og:url" content={postSEO ? postURL : blogURL} />
-      {postSEO ? <meta property="og:type" content="article" /> : null}
+      <meta property="og:url" content={caseSEO ? postURL : blogURL} />
+      {caseSEO ? <meta property="og:type" content="article" /> : null}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
