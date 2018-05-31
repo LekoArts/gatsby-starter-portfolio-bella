@@ -24,7 +24,7 @@ injectGlobal`
   }
   @media (max-width: ${theme.breakpoint.m}), (max-device-width: ${theme.breakpoint.m}) {
     html {
-      font-size: 16px;
+      font-size: 16px !important;
       h1 {
         font-size: 3.157rem
       }
@@ -36,6 +36,25 @@ injectGlobal`
       }
       h4 {
         font-size: 1.333rem;
+      }
+      h5 {
+        font-size: 1rem;
+      }
+    }
+  }
+  @media (max-width: ${theme.breakpoint.s}), (max-device-width: ${theme.breakpoint.s}) {
+    html {
+      h1 {
+        font-size: 2.441rem
+      }
+      h2 {
+        font-size: 1.953rem;
+      }
+      h3 {
+        font-size: 1.563rem;
+      }
+      h4 {
+        font-size: 1.25rem;
       }
       h5 {
         font-size: 1rem;

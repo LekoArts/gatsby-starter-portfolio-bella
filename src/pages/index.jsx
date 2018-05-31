@@ -12,14 +12,16 @@ const Header = styled.header`
   width: 100%;
   height: 900px;
   position: relative;
-  padding: 2rem;
+  padding: 1.75rem;
 `;
 
 const Logo = styled.h2`
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 0 1.75rem;
   margin-top: 50px;
 `;
 
@@ -42,6 +44,14 @@ const Hero = styled(Flex)`
     }
     h3 {
       font-size: 1.5rem;
+    }
+  }
+  @media (max-width: ${props => props.theme.breakpoint.s}) {
+    h1 {
+      line-height: 3rem;
+    }
+    h3 {
+      font-size: 1.3rem;
     }
   }
 `;
@@ -76,6 +86,11 @@ const ServiceImage = styled.div`
     width: 100%;
     img {
       width: 50%;
+    }
+  }
+  @media (max-width: ${props => props.theme.breakpoint.s}) {
+    img {
+      width: 75%;
     }
   }
 `;

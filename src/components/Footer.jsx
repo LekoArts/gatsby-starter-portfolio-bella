@@ -10,7 +10,7 @@ const Wrapper = styled.footer`
   a {
     color: ${props => props.theme.colors.bg};
     &:hover {
-      color: ${props => props.theme.colors.primary};
+      color: ${props => props.theme.colors.primaryLight};
     }
   }
 `;
@@ -20,13 +20,22 @@ const Inner = styled(Flex)`
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    div:last-child {
+      margin-top: 1rem;
+    }
   }
 `;
 
 const StyledLink = styled(Link)`
+  transform: translateX(0);
+  transition: all 200ms ease-out;
   &:before {
     content: '←';
     padding-right: 8px;
+  }
+  &:hover {
+    color: ${props => props.theme.colors.bg};
+    transform: translateX(-6px);
   }
 `;
 
@@ -37,7 +46,7 @@ const Footer = ({ isCase }) => {
       <Inner justifyContent="space-between" p={4}>
         {isCase ? (
           <React.Fragment>
-            <StyledLink>Return to home</StyledLink>
+            <StyledLink to="/">Return to home</StyledLink>
             <div>Contact Us</div>
           </React.Fragment>
         ) : (

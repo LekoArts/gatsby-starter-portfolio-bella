@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import styled from 'react-emotion';
 import Image from 'gatsby-image';
@@ -86,12 +87,18 @@ const CaseTemplate = ({ data: { prismicCaseStudy: caseNode } }) => {
         <SubTitle>{data.subtitle.text}</SubTitle>
         <Content dangerouslySetInnerHTML={{ __html: data.content.html }} />
       </Wrapper>
-      <Footer />
+      <Footer isCase />
     </React.Fragment>
   );
 };
 
 export default CaseTemplate;
+
+CaseTemplate.propTypes = {
+  data: PropTypes.shape({
+    prismicCaseStudy: PropTypes.object.isRequired,
+  }).isRequired,
+};
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
