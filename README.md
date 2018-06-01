@@ -6,6 +6,8 @@ A portfolio starter for [Gatsby](https://www.gatsbyjs.org/). The target audience
 
 [Demo Website](https://portfolio-bella.netlify.com/)
 
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/LeKoArts/gatsby-starter-portfolio-bella)
+
 - Big Typography & Images
 - White Theme
 - [Prismic.io](https://prismic.io/) as CMS
@@ -165,6 +167,77 @@ module.exports = {
   themeColor: '#b710a1',
   backgroundColor: '#350d27',
 };
+```
+
+You can also change the colors, container widths and other stuff in ``config/theme``:
+
+```JS
+const theme = {
+  colors: {
+    primary: '#b710a1', /* Used for the headings and image overlay */
+    primaryLight: '#e456e9', /* Used for links */
+    primaryDark: '#3d0435', /* Used for backgrounds */
+    bg: '#fff',
+    text: '#021212',
+    textInvert: '#fff',
+    greyLight: '#B4B9C1',
+    greyMedium: '#414141',
+    greyDark: '#2F2F2F',
+  },
+  fontFamily: {
+    body: `'Open Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'`,
+    heading: `'Bree Serif', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'`,
+  },
+  maxWidth: '1800px',
+  maxWidthText: '1000px',
+  breakpoint: {
+    xs: '400px',
+    s: '600px',
+    m: '900px',
+    l: '1200px',
+  },
+};
+```
+
+You can change the fonts used in ``config/typography``:
+
+```JS
+headerFontFamily: [
+  'Bree Serif',
+  '-apple-system',
+  'BlinkMacSystemFont',
+  'Segoe UI',
+  'Roboto',
+  'Helvetica',
+  'Arial',
+  'sans-serif',
+  'Apple Color Emoji',
+  'Segoe UI Emoji',
+  'Segoe UI Symbol',
+],
+bodyFontFamily: [
+  'Open Sans',
+  '-apple-system',
+  'BlinkMacSystemFont',
+  'Segoe UI',
+  'Roboto',
+  'Helvetica',
+  'Arial',
+  'sans-serif',
+  'Apple Color Emoji',
+  'Segoe UI Emoji',
+  'Segoe UI Symbol',
+],
+googleFonts: [
+  {
+    name: 'Bree Serif',
+    styles: ['400'],
+  },
+  {
+    name: 'Open Sans',
+    styles: ['400'],
+  },
+],
 ```
 
 **Attention:** You also need to edit ``static/robots.txt`` to include your domain!
