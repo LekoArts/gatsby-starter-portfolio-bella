@@ -57,7 +57,15 @@ const Content = styled.main`
   }
   p,
   ul,
-  ol {
+  ol,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  pre,
+  blockquote {
     max-width: ${props => props.theme.maxWidthText};
     margin-left: auto;
     margin-right: auto;
