@@ -77,6 +77,7 @@ const Content = styled.main`
     max-width: 100%;
     margin-top: 6rem;
     margin-bottom: 6rem;
+    text-align: center;
   }
   @media (max-width: ${props => props.theme.breakpoint.m}) {
     margin-top: 6rem;
