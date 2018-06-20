@@ -52,9 +52,8 @@ Check your development environment! You'll need [Node.js](https://nodejs.org/en/
 
 To copy and install this starter run this command (with "project-name" being the name of your folder you wish to install it in):
 
-```
+```bash
 gatsby new project-name https://github.com/LeKoArts/gatsby-starter-portfolio-bella
-npm run dev
 ```
 
 ## Prismic?!
@@ -133,6 +132,16 @@ It's best to store the API Key in an environment variable. Create the file `.env
 If you deploy to Netlify you can also setup an environment variable.
 
 More information on the source plugin: [gatsby-source-prismic](https://github.com/angeloashmore/gatsby-source-prismic)
+
+### Development
+
+Before running the local development server you'll need to add Content to your Prismic site! Go to your documents (`https://your-name.prismic.io/documents/`) and create content with the newly created *caseStudy* type.
+
+After that you can run the local server:
+
+```bash
+npm run dev
+```
 
 ### Adding new features/plugins
 
