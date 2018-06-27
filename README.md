@@ -135,7 +135,7 @@ More information on the source plugin: [gatsby-source-prismic](https://github.co
 
 ### Development
 
-Before running the local development server you'll need to add Content to your Prismic site! Go to your documents (`https://your-name.prismic.io/documents/`) and create content with the newly created *caseStudy* type.
+Before running the local development server you'll need to add Content to your Prismic site! Go to your documents (`https://your-name.prismic.io/documents/`) and create content with the newly created *caseStudy* type. You have to **publish** the documents.
 
 After that you can run the local server:
 
