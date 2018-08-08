@@ -28,6 +28,7 @@ Check out the [Gatsby Starter Portfolio Overview](https://gatsby-starter-portfol
 
 ## Features
 
+- Gatsby v2
 - Configurable
     - Use the website.js to easily change the most important information
     - Google Fonts
