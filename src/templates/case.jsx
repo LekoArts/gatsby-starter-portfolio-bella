@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import styled from 'react-emotion';
 import Image from 'gatsby-image';
 import { Box } from 'grid-emotion';
+import Layout from '../components/Layout';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 import config from '../../config/website';
@@ -92,7 +94,7 @@ const Content = styled.main`
 const CaseTemplate = ({ data: { prismicCaseStudy: caseNode } }) => {
   const { data } = caseNode;
   return (
-    <React.Fragment>
+    <Layout>
       <Helmet title={`${data.title.text} | ${config.siteTitle}`} />
       <SEO caseNode={caseNode} casePath={caseNode.uid} caseSEO />
       <Hero>
@@ -106,7 +108,7 @@ const CaseTemplate = ({ data: { prismicCaseStudy: caseNode } }) => {
         <Content dangerouslySetInnerHTML={{ __html: data.content.html }} />
       </Wrapper>
       <Footer isCase />
-    </React.Fragment>
+    </Layout>
   );
 };
 
@@ -118,7 +120,6 @@ CaseTemplate.propTypes = {
   }).isRequired,
 };
 
-/* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query CaseBySlug($uid: String!) {
     prismicCaseStudy(uid: { eq: $uid }) {
