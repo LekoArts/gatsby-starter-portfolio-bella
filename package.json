@@ -1,7 +1,7 @@
 {
   "name": "gatsby-starter-portfolio-bella",
   "description": "Gatsby Starter Portfolio Bella",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "LekoArts <hello@lekoarts.de>",
   "dependencies": {
     "emotion": "^9.2.9",
