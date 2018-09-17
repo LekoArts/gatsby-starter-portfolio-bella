@@ -94,13 +94,13 @@ const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>
     <React.Fragment>
       <SEO />
-      {children()}
+      {children}
     </React.Fragment>
   </ThemeProvider>
 );
 
 Layout.propTypes = {
-  children: PropTypes.func.isRequired,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
 };
 
 export default Layout;

@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 import styled from 'react-emotion';
 import { Flex } from 'grid-emotion';
 import Footer from '../components/Footer';
+import Layout from '../components/Layout';
 import GridItem from '../components/GridItem';
 import BeTheHero from '../images/be_the_hero.svg';
 import DataReport from '../images/data_report.svg';
@@ -141,7 +143,7 @@ const IndexPage = ({
     caseStudies: { edges },
   },
 }) => (
-  <React.Fragment>
+  <Layout>
     <Header>
       <Logo>Bella Inc.</Logo>
       <Hero justifyContent="center" alignItems="center" flexDirection="column">
@@ -226,7 +228,7 @@ const IndexPage = ({
       <h3>contact@domain.com</h3>
     </Contact>
     <Footer />
-  </React.Fragment>
+  </Layout>
 );
 
 export default IndexPage;
@@ -239,7 +241,6 @@ IndexPage.propTypes = {
   }).isRequired,
 };
 
-/* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query IndexQuery {
     caseStudies: allPrismicCaseStudy(sort: { fields: [last_publication_date], order: DESC }) {

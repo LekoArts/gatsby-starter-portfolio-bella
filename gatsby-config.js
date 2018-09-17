@@ -28,6 +28,7 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-lodash',
     {
       resolve: 'gatsby-plugin-typography',
       options: {
@@ -35,7 +36,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-react-next',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
