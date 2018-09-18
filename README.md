@@ -171,10 +171,12 @@ module.exports = {
   siteLanguage: 'en', // Language Tag on <html> element
   siteLogo: '/logos/logo-1024.png', // Used for SEO and manifest
   siteDescription: 'A bright single-page portfolio starter with big typography & images for Gatsby.',
+  author: 'LekoArts', // Author for schemaORGJSONLD
 
-  siteFBAppID: '123456789', // Facebook App ID
+  // siteFBAppID: '123456789', // Facebook App ID - Optional
   userTwitter: '@bella', // Twitter Username
   ogSiteName: 'bella', // Facebook Site Name
+  ogLanguage: 'en_US', // Facebook Language
 
   // Manifest and Progress color
   themeColor: '#b710a1',

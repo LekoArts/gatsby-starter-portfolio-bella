@@ -24,36 +24,23 @@ const SEO = props => {
   const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
   image = config.siteUrl + realPrefix + image;
   const blogURL = config.siteUrl + config.pathPrefix;
-  const schemaOrgJSONLD = [
+  let schemaOrgJSONLD = [
     {
       '@context': 'http://schema.org',
       '@type': 'WebSite',
+      '@id': blogURL,
       url: blogURL,
       name: title,
       alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
     },
   ];
   if (caseSEO) {
-    schemaOrgJSONLD.push(
-      {
-        '@context': 'http://schema.org',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            item: {
-              '@id': postURL,
-              name: title,
-              image,
-            },
-          },
-        ],
-      },
+    schemaOrgJSONLD = [
       {
         '@context': 'http://schema.org',
         '@type': 'BlogPosting',
-        url: blogURL,
+        '@id': postURL,
+        url: postURL,
         name: title,
         alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
         headline: title,
@@ -62,27 +49,42 @@ const SEO = props => {
           url: image,
         },
         description,
-      }
-    );
+        datePublished: caseNode.first_publication_date,
+        dateModified: caseNode.last_publication_date,
+        author: {
+          '@type': 'Person',
+          name: config.author,
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: config.author,
+          logo: {
+            '@type': 'ImageObject',
+            url: config.siteUrl + realPrefix + config.siteLogo,
+          },
+        },
+        isPartOf: blogURL,
+        mainEntityOfPage: {
+          '@type': 'WebSite',
+          '@id': blogURL,
+        },
+      },
+    ];
   }
   return (
     <Helmet>
       <html lang={config.siteLanguage} />
       <title>{title}</title>
-      <meta charSet="utf-8" />
-      <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+      <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
       <link rel="shortcut icon" href="/favicons/favicon.ico" />
       <meta name="msapplication-TileColor" content="#b710a1" />
       <meta name="msapplication-config" content="browserconfig.xml" />
-      <meta name="theme-color" content="#b710a1" />
       <meta name="description" content={description} />
       <meta name="image" content={image} />
       <script type="application/ld+json">{JSON.stringify(schemaOrgJSONLD)}</script>
-      <meta property="og:locale" content="de_DE" />
+      <meta property="og:locale" content={config.ogLanguage} />
       <meta property="og:site_name" content={config.ogSiteName} />
       <meta property="og:url" content={caseSEO ? postURL : blogURL} />
       {caseSEO ? <meta property="og:type" content="article" /> : null}

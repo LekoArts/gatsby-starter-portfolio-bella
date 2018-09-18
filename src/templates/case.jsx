@@ -124,6 +124,8 @@ export const pageQuery = graphql`
   query CaseBySlug($uid: String!) {
     prismicCaseStudy(uid: { eq: $uid }) {
       uid
+      first_publication_date
+      last_publication_date
       data {
         header_image {
           localFile {
