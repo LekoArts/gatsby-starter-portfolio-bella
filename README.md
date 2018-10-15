@@ -57,6 +57,7 @@ To copy and install this starter run this command (with "project-name" being the
 
 ```bash
 gatsby new project-name https://github.com/LeKoArts/gatsby-starter-portfolio-bella
+cd project-name
 ```
 
 ## Prismic?!
