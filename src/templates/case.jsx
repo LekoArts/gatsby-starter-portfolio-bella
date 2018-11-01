@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import styled from 'react-emotion';
-import Image from 'gatsby-image';
+import Img from 'gatsby-image';
 import { Box } from 'grid-emotion';
 import Layout from '../components/Layout';
 import Footer from '../components/Footer';
@@ -98,7 +98,7 @@ const CaseTemplate = ({ data: { prismicCaseStudy: caseNode } }) => {
       <Helmet title={`${data.title.text} | ${config.siteTitle}`} />
       <SEO caseNode={caseNode} casePath={caseNode.uid} caseSEO />
       <Hero>
-        <Image sizes={data.header_image.localFile.childImageSharp.sizes} />
+        <Img fluid={data.header_image.localFile.childImageSharp.fluid} />
         <TitleWrapper py={4}>
           <Title>{data.title.text}</Title>
         </TitleWrapper>
@@ -130,8 +130,8 @@ export const pageQuery = graphql`
         header_image {
           localFile {
             childImageSharp {
-              sizes(maxWidth: 1920, quality: 90, traceSVG: { color: "#021212" }) {
-                ...GatsbyImageSharpSizes_withWebp_tracedSVG
+              fluid(maxWidth: 1920, quality: 90, traceSVG: { color: "#021212" }) {
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
               }
               resize(width: 800) {
                 src

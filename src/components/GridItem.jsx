@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import Image from 'gatsby-image';
+import Img from 'gatsby-image';
 import styled from 'react-emotion';
 import { Flex } from 'grid-emotion';
 import { rgba } from 'polished';
@@ -94,14 +94,14 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const GridItem = ({ uid, sizes, alt, title, subtitle }) => (
+const GridItem = ({ uid, image, alt, title, subtitle }) => (
   <Item flexDirection="column" key={uid} style={{ marginTop: `${randomNumber(4, 8) * 2}rem` }}>
     <StyledLink to={uid}>
       <Overlay justifyContent="center" alignItems="center" flexDirection="column">
         <span>view</span>
         <span>case study</span>
       </Overlay>
-      <Image sizes={sizes} alt={alt} />
+      <Img fluid={image} alt={alt} />
     </StyledLink>
     <ItemTitle>{title}</ItemTitle>
     <ItemSubtitle>{subtitle}</ItemSubtitle>
@@ -112,7 +112,7 @@ export default GridItem;
 
 GridItem.propTypes = {
   uid: PropTypes.string.isRequired,
-  sizes: PropTypes.any.isRequired,
+  image: PropTypes.any.isRequired,
   alt: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,

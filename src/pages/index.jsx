@@ -158,7 +158,7 @@ const IndexPage = ({
         <GridItem
           uid={c.node.uid}
           key={c.node.uid}
-          sizes={c.node.data.header_image.localFile.childImageSharp.sizes}
+          image={c.node.data.header_image.localFile.childImageSharp.fluid}
           alt={c.node.data.title.text}
           title={c.node.data.title.text}
           subtitle={c.node.data.subtitle.text}
@@ -251,14 +251,14 @@ export const pageQuery = graphql`
             header_image {
               localFile {
                 childImageSharp {
-                  sizes(
+                  fluid(
                     maxWidth: 900
                     maxHeight: 900
                     quality: 90
                     traceSVG: { color: "#021212" }
                     cropFocus: ENTROPY
                   ) {
-                    ...GatsbyImageSharpSizes_withWebp_tracedSVG
+                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
                   }
                 }
               }
