@@ -67,6 +67,7 @@ This starter uses [Prismic.io](https://prismic.io/) as its CMS and therefore you
 - Modify this starter in order to use your favourite data source
 
 If you choose Prismic, you need to create the exact same "Custom Type" if you not want to modify the queries and names in the components.
+You can also have a look at the official guide I wrote for Gatsby: [Sourcing from Prismic](https://www.gatsbyjs.org/docs/sourcing-from-prismic/)
 
 Go to your custom types:
 
@@ -139,7 +140,7 @@ More information on the source plugin: [gatsby-source-prismic](https://github.co
 
 ### Development
 
-Before running the local development server you'll need to add Content to your Prismic site! Go to your documents (`https://your-name.prismic.io/documents/`) and create content with the newly created *caseStudy* type. You have to **publish** the documents.
+Before running the local development server you'll **need to add Content to your Prismic site!** Go to your documents (`https://your-name.prismic.io/documents/`) and create content with the newly created *caseStudy* type. Don't use the `.gif` image that Prismic has available (sharp can't process that) and use, e.g. an image from [Unsplash](https://unsplash.com/). You have to **publish** the documents.
 
 After that you can run the local server:
 

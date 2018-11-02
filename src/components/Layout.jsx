@@ -2,10 +2,10 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { injectGlobal } from 'emotion';
+import { injectGlobal } from 'react-emotion';
 import { ThemeProvider } from 'emotion-theming';
 
-import SEO from '../components/SEO';
+import SEO from './SEO';
 import theme from '../../config/theme';
 
 injectGlobal`

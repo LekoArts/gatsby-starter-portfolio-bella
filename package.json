@@ -34,11 +34,9 @@
   },
   "keywords": [
     "gatsby",
-    "starter",
-    "portfolio",
-    "bella",
-    "designer",
-    "photographer",
+    "gatsby-starter",
+    "gatsby-starter-portfolio",
+    "lekoarts",
     "prismic"
   ],
   "license": "MIT",
