@@ -26,6 +26,8 @@ Also check out the other *gatsby-starter-portfolio*:
 
 Check out the [Gatsby Starter Portfolio Overview](https://gatsby-starter-portfolio.netlify.com/)!
 
+**Interest in more advanced usages? Visit [gatsby-starter-prismic](https://github.com/LekoArts/gatsby-starter-prismic) to use the full power of Prismic!**
+
 ## Features
 
 - Gatsby v2.0.0
@@ -66,7 +68,7 @@ This starter uses [Prismic.io](https://prismic.io/) as its CMS and therefore you
 - Setup an account on Prismic and also use it
 - Modify this starter in order to use your favourite data source
 
-If you choose Prismic, you need to create the exact same "Custom Type" if you not want to modify the queries and names in the components.
+If you choose Prismic, you need to create the exact same "Custom Type" if you not want to modify the queries and names in the components. The [gatsby-starter-prismic](https://github.com/LekoArts/gatsby-starter-prismic) has extensive instructions on setting these things up, you can have a look at them for reference.
 You can also have a look at the official guide I wrote for Gatsby: [Sourcing from Prismic](https://www.gatsbyjs.org/docs/sourcing-from-prismic/)
 
 Go to your custom types:
