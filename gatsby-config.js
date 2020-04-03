@@ -18,12 +18,21 @@ module.exports = {
     {
       resolve: 'gatsby-source-prismic',
       options: {
-        repositoryName: 'gatsby-starter-portfolio-bella',
+        repositoryName: 'jeff-portfolio',
         accessToken: `${process.env.API_KEY}`,
         linkResolver: ({ node, key, value }) => doc => `/${doc.uid}`,
         htmlSerializer: ({ node, key, value }) => (type, element, content, children) => {
           // Your HTML serializer
         },
+        schemas: {
+          case_study: require('./src/schemas/case_study.json'),
+        },
+        lang: '*',
+        // This defaults to always return false.
+        shouldDownloadImage: ({ node, key, value }) => {
+          // Return true to download the image or false to skip.
+        },
+        typePathsFilenamePrefix: 'prismic-typepaths---gatsby-source-prismic-test-site',
       },
     },
     'gatsby-transformer-sharp',

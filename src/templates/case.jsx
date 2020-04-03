@@ -116,7 +116,7 @@ export default CaseTemplate;
 
 CaseTemplate.propTypes = {
   data: PropTypes.shape({
-    prismicCaseStudy: PropTypes.object.isRequired,
+    allPrismicCaseStudy: PropTypes.object.isRequired,
   }).isRequired,
 };
 
