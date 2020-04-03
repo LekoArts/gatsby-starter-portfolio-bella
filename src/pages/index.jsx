@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import styled from 'react-emotion';
-import { Flex } from 'grid-emotion';
+import styled from '@emotion/styled';
+import { Flex } from '@rebass/grid/emotion';
 import Footer from '../components/Footer';
 import Layout from '../components/Layout';
 import GridItem from '../components/GridItem';

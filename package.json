@@ -4,6 +4,9 @@
   "version": "2.0.0",
   "author": "LekoArts <hello@lekoarts.de>",
   "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "@rebass/grid": "^6.1.0",
     "emotion": "^10.0.27",
     "emotion-server": "^10.0.27",
     "emotion-theming": "^10.0.27",
@@ -21,15 +24,15 @@
     "gatsby-source-filesystem": "^2.2.2",
     "gatsby-source-prismic": "^3.0.0",
     "gatsby-transformer-sharp": "^2.4.3",
-    "grid-emotion": "^3.2.0",
     "lodash": "^4.17.15",
     "polished": "^3.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-emotion": "^10.0.0",
     "react-helmet": "^5.2.1",
     "react-typography": "^0.16.19",
+    "styled-components": "^5.0.1",
+    "styled-system": "^5.1.5",
     "typography": "^0.16.19"
   },
   "keywords": [

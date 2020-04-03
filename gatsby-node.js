@@ -1,6 +1,6 @@
 const path = require('path');
 
-exports.createPages = async ({ reporter, graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const caseStudyTemplate = path.resolve('src/templates/case.jsx');
 
@@ -19,7 +19,7 @@ exports.createPages = async ({ reporter, graphql, actions }) => {
 
   pages.data.posts.edges.forEach(({ node }) => {
     createPage({
-      path: `/projects/${node.uid}`,
+      path: `/CaseStudy/${node.uid}`,
       component: caseStudyTemplate,
       context: {
         uid: node.uid,

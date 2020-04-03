@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 import Img from 'gatsby-image';
-import { Box } from 'grid-emotion';
+import { Box } from '@rebass/grid/emotion';
 import Layout from '../components/Layout';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
@@ -116,12 +116,12 @@ export default CaseTemplate;
 
 CaseTemplate.propTypes = {
   data: PropTypes.shape({
-    allPrismicCaseStudy: PropTypes.object.isRequired,
+    allPrimsicCaseStudy: PropTypes.object.isRequired,
   }).isRequired,
 };
 
 export const pageQuery = graphql`
-  query CaseBySlug($uid: String!) {
+  query CaseStudy($uid: String!) {
     prismicCaseStudy(uid: { eq: $uid }) {
       uid
       first_publication_date
