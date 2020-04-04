@@ -2,10 +2,11 @@ const path = require('path');
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
+  const caseStudyTemplate = path.resolve('src/templates/case.jsx');
 
   const pages = await graphql(`
     {
-      allPrismicCaseStudy {
+      posts: allPrismicCaseStudy {
         edges {
           node {
             id
@@ -16,14 +17,12 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  const caseTemplate = path.resolve('src/templates/case.jsx');
-
-  pages.data.allPrismicCaseStudy.edges.forEach(edge => {
+  pages.data.posts.edges.forEach(({ node }) => {
     createPage({
-      path: `/${edge.node.uid}`,
-      component: caseTemplate,
+      path: `/CaseStudy/${node.uid}`,
+      component: caseStudyTemplate,
       context: {
-        uid: edge.node.uid,
+        uid: node.uid,
       },
     });
   });

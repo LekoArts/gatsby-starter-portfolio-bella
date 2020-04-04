@@ -24,6 +24,14 @@ module.exports = {
         htmlSerializer: ({ node, key, value }) => (type, element, content, children) => {
           // Your HTML serializer
         },
+        schemas: {
+          case_study: require('./src/schemas/case_study.json'),
+        },
+        lang: '*',
+        shouldDownloadImage: ({ node, key, value }) => {
+          return true;
+        },
+        typePathsFilenamePrefix: 'prismic-typepaths---gatsby-source-prismic-test-site',
       },
     },
     'gatsby-transformer-sharp',

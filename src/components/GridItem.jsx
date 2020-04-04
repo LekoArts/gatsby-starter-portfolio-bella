@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
-import styled from 'react-emotion';
-import { Flex } from 'grid-emotion';
+import styled from '@emotion/styled';
+import { Flex } from '@rebass/grid/emotion';
 import { rgba } from 'polished';
 import { randomNumber } from '../utils/randomNumber';
 
