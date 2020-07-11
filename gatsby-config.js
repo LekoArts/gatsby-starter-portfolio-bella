@@ -19,7 +19,7 @@ module.exports = {
       resolve: 'gatsby-source-prismic',
       options: {
         repositoryName: 'gatsby-starter-portfolio-bella',
-        accessToken: `${process.env.API_KEY}`,
+        API_KEY: `${process.env.API_KEY}`,
         linkResolver: ({ node, key, value }) => doc => `/${doc.uid}`,
         htmlSerializer: ({ node, key, value }) => (type, element, content, children) => {
           // Your HTML serializer
